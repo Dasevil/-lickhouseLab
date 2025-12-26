@@ -1,36 +1,36 @@
-## Установка
+# Лабораторная работа №3: Работа с MongoDB
 
-```powershell
-pip install -U pymongo pandas pyarrow tabulate
-```
+## Цель работы
 
-## Настройки
+Освоить работу с документо-ориентированной СУБД MongoDB на примере иерархического каталога товаров, научиться проектировать структуры данных с денормализацией и работать с агрегационным фреймворком.
 
-- MONGO_URI = mongodb://root:rootpass@localhost:27017/admin
-- MONGO_DB = ecom_catalog
+## План выполнения
 
-Можно переопределить на всякий случай:
+### Подготовительный этап
+- [ ] Развернуть MongoDB 7.x через Docker Compose (добавить к существующей инфраструктуре с PostgreSQL и ClickHouse)
+- [ ] Установить MongoDB Compass (GUI клиент) или использовать mongosh (CLI)
+- [ ] Установить Python библиотеки: pymongo, pandas
+- [ ] Подготовить parquet файл с данными
+- [ ] Проверка готовности:
+  - [ ] Успешное подключение к MongoDB через Compass/mongosh
+  - [ ] Создание тестовой базы данных ecom_catalog
+  - [ ] Проверка доступности Python окружения и возможности чтения CSV
 
-```powershell
-$env:MONGO_URI="mongodb://USER:PASS@localhost:27017/admin"
-$env:MONGO_DB="ecom_catalog"
-```
+### Часть 1: Проектирование и загрузка данных
+- [ ] Задание 1.1: Анализ исходных данных и проектирование схемы
+- [ ] Задание 1.2: Создание коллекции категорий (categories)
+- [ ] Задание 1.3: Создание коллекции товаров (products)
+- [ ] Задание 1.4: Создание индексов для оптимизации запросов
 
-## Запускайте по порядку
+### Часть 2: Базовые запросы к иерархическим данным
+- [ ] Задание 2.1: Навигация по иерархии категорий
+- [ ] Задание 2.2: Работа с товарами и вложенными документами
 
-```powershell
-python .\practice_06_mongodb\01_env_check.py
+### Часть 3: Агрегационный фреймворк
+- [ ] Задание 3.1: Аналитика по категориям
+- [ ] Задание 3.3: Анализ структуры категорий
 
-python .\practice_06_mongodb\02_task_1_1_analyze_parquet.py --parquet "data\ozon_inference_2025_10_17_offers_2025_10_17.pq"
-
-python .\practice_06_mongodb\03_task_1_2_load_categories.py --parquet "data\ozon_inference_2025_10_17_offers_2025_10_17.pq"
-python .\practice_06_mongodb\04_task_1_3_load_products.py   --parquet "data\ozon_inference_2025_10_17_offers_2025_10_17.pq"
-
-python .\practice_06_mongodb\05_task_1_4_indexes.py
-
-python .\practice_06_mongodb\06_task_2_1_categories_queries.py
-python .\practice_06_mongodb\07_task_2_2_products_queries.py
-
-python .\practice_06_mongodb\08_task_3_1_aggs_products.py
-python .\practice_06_mongodb\09_task_3_3_aggs_categories.py
-```
+### Итоговое задание
+- [ ] Создать документацию в GitHub
+- [ ] Собрать все результаты и скриншоты в аналитическую записку
+- [ ] Сформировать отчет и сдать работу
